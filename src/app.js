@@ -1,6 +1,6 @@
 window.onload = () => {
   let suits = ["diams", "hearts", "clubs", "spades"];
-  let ranks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+  let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
   let objOfCards = [];
 
   let buttonDraw = document.querySelector(".draw-button");
@@ -22,7 +22,7 @@ window.onload = () => {
       for (let i = 0; i < inputValueCards; i++) {
         let objElementsCard = {
           suits: suits[Math.floor(Math.random() * suits.length)],
-          ranks: ranks[Math.floor(Math.random() * ranks.length)]
+          numbers: numbers[Math.floor(Math.random() * numbers.length)]
         };
 
         objOfCards.push(objElementsCard);
@@ -30,20 +30,20 @@ window.onload = () => {
 
       if (myCard.childNodes.length === 0) {
         for (let element of objOfCards) {
-          if (element.ranks === 1) {
-            element.ranks = "A";
+          if (element.numbers === 1) {
+            element.numbers = "A";
           }
-          if (element.ranks === 11) {
-            element.ranks = "J";
+          if (element.numbers === 11) {
+            element.numbers = "J";
           }
-          if (element.ranks === 12) {
-            element.ranks = "Q";
+          if (element.numbers === 12) {
+            element.numbers = "Q";
           }
-          if (element.ranks === 13) {
-            element.ranks = "K";
+          if (element.numbers === 13) {
+            element.numbers = "K";
           }
           let myDiv = document.createElement("div");
-          let contentDiv = document.createTextNode(`${element.ranks}`);
+          let contentDiv = document.createTextNode(`${element.numbers}`);
           myDiv.className = `card ${element.suits}`;
           myDiv.appendChild(contentDiv);
           myCard.appendChild(myDiv);
@@ -61,23 +61,23 @@ window.onload = () => {
     while (wall > 0) {
       let index = 0;
       while (index < wall) {
-        if (objOfCards[index].ranks === "A") {
-          objOfCards[index].ranks = 1;
+        if (objOfCards[index].numbers === "A") {
+          objOfCards[index].numbers = 1;
         }
-        if (objOfCards[index].ranks === "J") {
-          objOfCards[index].ranks = 11;
+        if (objOfCards[index].numbers === "J") {
+          objOfCards[index].numbers = 11;
         }
-        if (objOfCards[index].ranks === "Q") {
-          objOfCards[index].ranks = 12;
+        if (objOfCards[index].numbers === "Q") {
+          objOfCards[index].numbers = 12;
         }
-        if (objOfCards[index].ranks === "K") {
-          objOfCards[index].ranks = 13;
+        if (objOfCards[index].numbers === "K") {
+          objOfCards[index].numbers = 13;
         }
 
-        if (objOfCards[index].ranks > objOfCards[index + 1].ranks) {
-          let aux = objOfCards[index].ranks;
-          objOfCards[index].ranks = objOfCards[index + 1].ranks;
-          objOfCards[index + 1].ranks = aux;
+        if (objOfCards[index].numbers > objOfCards[index + 1].numbers) {
+          let aux = objOfCards[index].numbers;
+          objOfCards[index].numbers = objOfCards[index + 1].numbers;
+          objOfCards[index + 1].numbers = aux;
         }
         index++;
       }
@@ -89,20 +89,20 @@ window.onload = () => {
       myUl.className = "lista-containers-cards-sort";
       myContainerDiv.appendChild(myUl);
       for (let element of objOfCards) {
-        if (element.ranks === 1) {
-          element.ranks = "A";
+        if (element.numbers === 1) {
+          element.numbers = "A";
         }
-        if (element.ranks === 11) {
-          element.ranks = "J";
+        if (element.numbers === 11) {
+          element.numbers = "J";
         }
-        if (element.ranks === 12) {
-          element.ranks = "Q";
+        if (element.numbers === 12) {
+          element.numbers = "Q";
         }
-        if (element.ranks === 13) {
-          element.ranks = "K";
+        if (element.numbers === 13) {
+          element.numbers = "K";
         }
         let myLi = document.createElement("li");
-        let contentLi = document.createTextNode(`${element.ranks}`);
+        let contentLi = document.createTextNode(`${element.numbers}`);
         myLi.className = `card ${element.suits}`;
         myLi.appendChild(contentLi);
         myUl.appendChild(myLi);
